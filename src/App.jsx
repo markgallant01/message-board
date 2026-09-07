@@ -1,15 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-
-const MessagePost = ({ title, author, body }) => {
-  return (
-    <div>
-      <h1>{title}</h1>
-      <h2>{author}</h2>
-      <p>{body}</p>
-    </div>
-  )
-}
+import MessagePost from './components/MessagePost/MessagePost.jsx'
 
 function App() {
   return (
