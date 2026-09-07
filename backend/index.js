@@ -4,11 +4,13 @@ const port = 3001
 
 const posts = [
   {
+    id: 0,
     title: 'Test Post',
     author: 'anonymous',
     body: 'This is a test post.'
   },
   {
+    id: 1,
     title: 'Hmm...',
     author: 'Siegmeyer',
     body: 'Still closed... still closed...'
