@@ -9,11 +9,9 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:3001/api/messageposts')
     .then((response) => {
-        const data = response.data
-        setPosts(data)
+      setPosts(response.data)
     })
   }, [])
-  console.log(posts)
 
   return (
     <div className="container">
