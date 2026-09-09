@@ -21,7 +21,15 @@ function App() {
       text: text
     }
 
-    console.log(newMessage)
+    axios
+      .post('http://localhost:3001/api/MessagePosts', newMessage)
+      .then(response => {
+        axios
+          .get('http://localhost:3001/api/MessagePosts')
+          .then(response => {
+            setPosts(response.data)
+          })
+      })
   }
 
   return (
