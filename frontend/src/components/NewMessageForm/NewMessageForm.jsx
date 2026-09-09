@@ -21,6 +21,11 @@ const NewMessageForm = ({ handleNewMessage }) => {
   const formSubmit = (event) => {
     event.preventDefault()
     handleNewMessage(newMessageTitle, newMessageAuthor, newMessageText)
+
+    // clear fields for next new message
+    setNewMessageTitle('')
+    setNewMessageAuthor('')
+    setNewMessageText('')
   }
 
   return (
