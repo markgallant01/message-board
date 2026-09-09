@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import './App.css'
 import MessagePost from './components/MessagePost/MessagePost.jsx'
+import NewMessageForm from './components/NewMessageForm/NewMessageForm.jsx'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -14,12 +15,17 @@ function App() {
   }, [])
 
   return (
-    <div className="container">
-      {posts.map(post => {
-        return <MessagePost key={post.id} title={post.title}
-          author={post.author} body={post.body} />
-      })}
-    </div>
+    <>
+      <div className="NewMessageFormContainer">
+        <NewMessageForm />
+      </div>
+      <div className="container">
+        {posts.map(post => {
+          return <MessagePost key={post.id} title={post.title}
+            author={post.author} body={post.body} />
+        })}
+      </div>
+    </>
   )
 }
 
