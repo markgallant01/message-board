@@ -1,8 +1,10 @@
 import './NewMessageForm.css'
+import { useState } from 'react'
 
-const NewMessageForm = ({ newMessageTitle, setNewMessageTitle,
-  newMessageAuthor, setNewMessageAuthor, newMessageText,
-  setNewMessageText, handleNewMessage }) => {
+const NewMessageForm = ({ handleNewMessage }) => {
+  const [newMessageTitle, setNewMessageTitle] = useState('')
+  const [newMessageAuthor, setNewMessageAuthor] = useState('')
+  const [newMessageText, setNewMessageText] = useState('')
 
   const handleTitleChange = (event) => {
     setNewMessageTitle(event.target.value)
@@ -16,8 +18,13 @@ const NewMessageForm = ({ newMessageTitle, setNewMessageTitle,
     setNewMessageText(event.target.value)
   }
 
+  const formSubmit = (event) => {
+    event.preventDefault()
+    handleNewMessage(newMessageTitle, newMessageAuthor, newMessageText)
+  }
+
   return (
-      <form id="NewMessageForm" onSubmit={event => handleNewMessage(event)}>
+      <form id="NewMessageForm" onSubmit={event => formSubmit(event)}>
         <input type="text" name="title" placeholder="title"
           value={newMessageTitle}
           onChange={event => handleTitleChange(event)}
