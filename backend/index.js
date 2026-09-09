@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3001
 
+app.use(express.json())
+
 const posts = [
   {
     id: 0,
@@ -17,12 +19,28 @@ const posts = [
   }
 ]
 
+// global IDs
+let next_id = 2
+
 app.get('/', (req, res) => {
   res.send('Hello, world!')
 })
 
 app.get('/api/MessagePosts', (req, res) => {
   res.json(posts) 
+})
+
+app.post('/api/MessagePosts', (req, res) => {
+  const newMessage = {
+    id: next_id,
+    title: req.body.title,
+    author: req.body.author,
+    body: req.body.text
+  }
+
+  next_id++
+  posts.push(newMessage)
+  res.sendStatus(200)
 })
 
 app.listen(port, () => {
