@@ -2,4 +2,11 @@
   display: flex;
   flex-flow: row wrap;
   gap: 10px;
+  padding: 5px 0;
+}
+
+.NewMessageFormContainer {
+  display: flex;
+  flex-flow: row-wrap;
+  justify-content: center;
 }
