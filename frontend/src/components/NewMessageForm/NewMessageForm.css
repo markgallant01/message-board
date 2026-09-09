@@ -1,0 +1,15 @@
+#NewMessageForm {
+  display: flex;
+  flex-flow: column;
+  border: 1px solid black;
+  width: 300px;
+}
+
+#NewMessageForm input {
+  margin: 3px;
+}
+
+#NewMessageForm textarea {
+  margin: 3px;
+  height: 70px;
+}
