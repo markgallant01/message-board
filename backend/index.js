@@ -40,7 +40,7 @@ app.post('/api/MessagePosts', (req, res) => {
 
   next_id++
   posts.push(newMessage)
-  res.sendStatus(200)
+  return res.status(201).json(newMessage)
 })
 
 app.listen(port, () => {
